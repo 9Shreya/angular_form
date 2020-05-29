@@ -1,0 +1,30 @@
+<h1>touched-pristin-valid works!</h1>
+<form #us="ngForm">
+{{us.value | json}}
+<hr>
+{{userhello |json}}
+<div class="form=group">
+    Name
+    <input class="form-control" type="text" name="hi" #name [(ngModel)]="userhello.name" required>
+</div>
+{{name.className}}
+<div class="form-group">
+email
+<input type="text" name="em" #ema [(ngModel)]='userhello.email' class="form-control" required>
+</div>
+{{ema.className}}
+
+</form>
+By this # "#ema" we just give the refrence to DOM obj and the name attriute of input tag is imp 
+for ngModel pointing value
+if we assain value for #ema then it will start to point ngModel properties 
+<h2>ngModel Classes are ============ngModel properties are</h2>  
+ 
+   <p>ng-touched ===============================================touched</p>
+   <p>ng-untouched ===============================================untouched</p>
+   <p>ng-valid===================================================valid</p>
+   <p>ng-invalid===================================================invalid</p>
+   <p>ng-pristine================================================= pristine</p>
+   <p>ng-dirty======================================================dirty</p>
+   <button routerLink='validation' class="btn btn-success">submit</button>
+   <br><br><br>

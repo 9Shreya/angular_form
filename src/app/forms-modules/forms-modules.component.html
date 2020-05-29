@@ -1,0 +1,52 @@
+<h1>
+  FormsModule by ngForm with the pre defined <u>"userForm"</u> a varibale in
+  forms.moduel.ts file applied container class of bootstrap "ngForm" is written
+  in "form" tag
+</h1>
+<form #userFrm="ngForm">
+  {{ userFrm.value | json }}
+
+  <div class="form-group">
+    Name
+    <input type="text" class="form-control" name="hello" ngModel />
+  </div>
+
+  <div class="form-group">
+    Pass
+    <input type="password" class="form-control" name="pass" ngModel />
+  </div>
+
+  <div class="form-group">
+    <select class="custom-select" name="cust" ngModel>
+      <option *ngFor="let top of topic">{{ top }}</option>
+    </select>
+  </div>
+
+  <div class="form-check">
+    <input
+      type="radio"
+      class="form-check-input"
+      name="hi"
+      value="helo"
+      ngModel
+    />
+    helo
+  </div>
+  <div class="form-check">
+    <input
+      type="radio"
+      class="form-check-input"
+      name="hi"
+      value="hum"
+      ngModel
+    />
+    hum "value atrribute is very much needed"
+  </div>
+  <div class="form-group">
+    <input type="checkbox" class="form-check-input" name="rem" ngModel />
+    Remember me
+  </div>
+  <button class="btn btn-primary" routerLink="modelGroup">submit</button>
+</form>
+<br /><br />
+<br />

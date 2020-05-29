@@ -1,0 +1,50 @@
+
+<form > here we havnt given form tag #userModel=ngForm as we are not in need of form refrence<br>
+    as we need form refrence while disabling and enabling submit button
+    <h2>4 things we have to write in input tag</h2><br><h3>
+        1.#pho=ngModel</h3> <p>as it will provide refrence to ngModel</p><br><h3>
+        2.[class.is-invalid]="pho.invalid"</h3><p>as it will provide the validation</p><br><h3>
+        3.[class.is-invalid] will work when class="form-control" is called from bootstrap
+    as in angular mostly things related to bootstarp
+    </h3><p>as it will provide the validation</p><br><h3>
+        4.[(ngModel)]='usenamemode.phone'</h3><p>as it will check the values of form</p>
+
+      <br><br>  <h2>validation-with-red-border works!</h2>
+<div class="form-group">
+    Name
+    <input type="text" name="hi" #nam=ngModel required [(ngModel)]='usenamemode.name' class="form-control">
+</div>
+it showing value for untouched-{{nam.untouched}}
+<br>
+<br>
+<div class="form-group">
+    Email
+    <input type="text" name="hello" #ema=ngModel required [(ngModel)]='usenamemode.email' class="form-control is-invalid">
+</div>
+we had just writen "class="form-control is-invalid"> and we get red color also
+for validation in angular classes are defined<br><br>
+here in email after writing also it will show red as we used this is overcome in next<br>
+"class="form-control is-invalid">
+<br><br><br>
+<div class="form-group">
+    Phone
+<input type="text" name="ph" class="form-control"  #pho=ngModel [class.is-invalid]="pho.invalid" 
+[(ngModel)]='usenamemode.phone' required>
+</div>
+
+<br>
+here on starting only it is showing error as we
+ write any content it will not show any error as we start writnig this is overcome in next<br>
+ [class.is-invalid]="pho.invalid"<br><br>
+ <div class="form-group">
+    <label > select</label>
+     <input type="text" name="mua" required class="form-control" #sel=ngModel
+      [class.is-invalid]="sel.invalid && sel.touched"[(ngModel)]="usenamemode.select">
+ </div><br>
+ it on starting it will not show error so we used touched property <br>
+ [class.is-invalid]="sel.invalid && sel.touched"<br>
+ and when we use <u> #variable</u> name we have to use <br>
+ [(ngModel)]="variable for obj . the name of tht property which is taken in input form dom to user.ts file"
+<br><br> <br>
+<button class="btn btn-primary" routerLink='validationWith-Msg'>submit</button>
+ </form> 

@@ -1,0 +1,86 @@
+<p>validation-with-message works!</p>
+here we done submit button disabled<br />
+<h2>
+  [class.is-valid] [class.is-invalid] [class.d-none]
+</h2>
+<h3>
+  these all classes present in boortstrap for validation and we have to use
+  class="form-control" then only these will work
+</h3>
+<form #salman="ngForm">
+  <div class="form-group">
+    Name
+    <input
+      type="text"
+      name="hi"
+      #my="ngModel"
+      class="form-control"
+      [class.is-valid]="my.valid"
+      [(ngModel)]="useModeVal.na"
+      required
+      [class.is-invalid]="my.invalid && my.touched"
+    />
+    <small [class.d-none]="my.valid || my.untouched" style="color: red;">
+      name is required
+    </small>
+  </div>
+  <div>
+    phone
+    <input
+      type="text"
+      name="pn"
+      #goog="ngModel"
+      [(ngModel)]="useModeVal.pho"
+      class="form-control"
+      [class.is-invalid]="goog.invalid && goog.touched"
+      required
+      pattern="\d{10}"
+      [class.is-valid]="goog.valid"
+    />
+    <small [class.d-none]="goog.valid || goog.untouched" style="color: red;">
+      Phone no is requored and shoul be of 10 digits and no should start from
+      7or8or9</small
+    >
+  </div>
+  <div class="form-group">
+    email
+    <input
+      type="text"
+      name="filp"
+      #ama="ngModel"
+      [(ngModel)]="useModeVal.emai"
+      class="form-control"
+      [class.is-invalid]="ama.invalid && ama.touched"
+      [class.is-valid]="ama.valid"
+      required
+      pattern="[a-z]{4,20}(@gmail.com)"
+    />
+    <small [class.d-none]="ama.valid || ama.untouched" style="color: red;">
+      email is required and should be like hgfd@gmail.com</small
+    >
+  </div>
+  <div class="form-group">
+    <select
+      name="topic"
+      required
+      class="custom-select"
+      #sel="ngModel"
+      [(ngModel)]="useModeVal.select"
+      [class.is-invalid]="ama.invalid && ama.touched"
+    >
+      <option value="" disabled>I am intersted in</option>
+      <option>angular</option>
+      <option>angular</option>
+      <option>angular</option>
+      <option *ngFor="let rat of toph">{{ rat }}</option>
+    </select>
+    <small [class.d-none]="ama.valid || ama.untouched">select any topic</small>
+  </div>
+  <button
+    class="btn btn-primary"
+    [disabled]="salman.invalid"
+    routerLink="IfConditionValidation"
+  >
+    submit
+  </button>
+</form>

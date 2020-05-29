@@ -1,0 +1,173 @@
+<p>binding-form-using-interpolation-to-ts-file works!</p>
+<form #userFom="ngForm">
+  {{ userFom.value | json }}
+  <hr />
+  {{ userM | json }}
+  <br /><br />
+  <div class="form-group">
+    Name
+    <input
+      type="text"
+      name="username"
+      class="form-control"
+      [(ngModel)]="userM.name"
+    />
+    when declaerd varible in ts file is not public we cannot fetch value of that
+    element in html page
+  </div>
+  <hr />
+  <div class="form-group">
+    email
+    <input
+      type="text"
+      name="email by front end"
+      class="form-control"
+      [ngModel]="userM.email"
+    />
+  </div>
+  in email we havnt used property and event both binding so we cant change data
+  in database here just used property binding so we get data value in html page
+  only
+  <hr />
+  <div class="form-group">
+    phone
+    <input
+      type="text"
+      name="phone in"
+      [ngModel]="userM.phone"
+      class="form-control"
+    />
+  </div>
+  actually their is no use of property binding [] as we see all data are same
+  except name beacue all are showing data on html with help of ngModel and with
+  help of <u>userForm.value</u>
+  <div class="form-group">
+    topics
+    <select name="select topic in" class="custom-select" ngModel>
+      <option *ngFor="let top of topics">{{ top }}</option>
+    </select>
+  </div>
+  time Prefrence
+  <div class="form-group">
+    <input
+      type="radio"
+      name="vaku in"
+      class="form-check-input"
+      ngModel
+      value="evening"
+    />
+    evening (5pm-9pm)
+  </div>
+  <div class="form-group">
+    <input
+      type="radio"
+      name="vaku in"
+      class="form-check-input"
+      value="morning"
+      ngModel
+    />
+
+    morning(9am-5pm)
+  </div>
+  subscribe
+  <div class="form=group">
+    <input
+      type="checkbox"
+      name="checkbox in"
+      class="form-check-input"
+      ngModel
+    />
+    remember me
+  </div>
+  <button class="btn btn-secondary" routerLink="TouchedPristinValidComponent">
+    submit
+  </button>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</form>
+<h1>
+  now we will change data in both as data got change in html it will get updated
+  in database also
+</h1>
+<form #userForm="ngForm">
+  {{ userForm.value | json }}
+  <hr />
+  {{ userM | json }}
+  <br /><br />
+  <div class="form-group">
+    Name
+    <input
+      type="text"
+      name="username"
+      class="form-control"
+      [(ngModel)]="userM.name"
+    />
+  </div>
+  <hr />
+  <div class="form-group">
+    email
+    <input
+      type="text"
+      name="email by front end"
+      class="form-control"
+      [(ngModel)]="userM.email"
+    />
+  </div>
+  <hr />
+  <div class="form-group">
+    phone
+    <input
+      type="text"
+      name="phone in"
+      [(ngModel)]="userM.phone"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    topics
+    <select
+      name="select topic in"
+      class="custom-select"
+      [(ngModel)]="userM.topic"
+    >
+      <option value="">i am selected</option>
+      <option *ngFor="let top of topics">{{ top }}</option>
+    </select>
+  </div>
+  time Prefrence
+  <div class="form-group">
+    <input
+      type="radio"
+      name="vaku in"
+      class="form-check-input"
+      [(ngModel)]="userM.timePrefrence"
+      value="evening"
+    />
+    evening (5pm-9pm)
+  </div>
+  <div class="form-group">
+    <input
+      type="radio"
+      name="vaku in"
+      class="form-check-input"
+      value="morning"
+      [(ngModel)]="userM.timePrefrence"
+    />
+
+    morning(9am-5pm)
+  </div>
+  subscribe
+  <div class="form=group">
+    <input
+      type="checkbox"
+      name="checkbox in"
+      class="form-check-input"
+      [(ngModel)]="userM.subscribe"
+    />
+    remember me
+  </div>
+  <button class="btn btn-secondary" routerLink="TouchedPristinValidComponent">
+    submit
+  </button>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</form>

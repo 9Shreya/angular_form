@@ -1,0 +1,120 @@
+<p>validation-with-if-condition works!</p>
+<div
+  style="
+    border: transparent;
+    border-radius: 30px;
+    background-color: khaki;
+    height: 500px;
+    width: 600px;
+    padding: 30px;
+  "
+>
+  <form #user="ngForm">
+    <div class="form-group">
+      name
+      <input
+        type="text"
+        name="ji"
+        #hi="ngModel"
+        required
+        [(ngModel)]="ifMsg.name"
+        [class.is-invalid]="hi.invalid && hi.touched"
+        [class.is-valid]="hi.valid"
+        class="form-control"
+        pattern="[\w]{3,20}"
+        style="
+          border: transparent;
+          border-bottom: 2px solid black;
+          background-color: khaki;
+          box-shadow: 3px 3px grey;
+        "
+      />
+      <div *ngIf="hi.errors && hi.invalid && hi.touched">
+        <small class="text-danger" *ngIf="hi.errors.required">required</small>
+        <small *ngIf="hi.errors.pattern">
+          there should be atleast of 3 letters
+        </small>
+      </div>
+    </div>
+    <div>
+      phone
+      <input
+        type="text"
+        name="ph"
+        #on="ngModel"
+        style="
+          box-shadow: 3px 3px grey;
+          border: transparent;
+          border-bottom: 2px solid black;
+          background-color: khaki;
+        "
+        pattern="[7-9][\d]{9}"
+        [(ngModel)]="ifMsg.phone"
+        class="form-control"
+        [class.is-invalid]="on.invalid && on.touched"
+        required
+        [class.is-valid]="on.valid"
+      />
+      <div *ngIf="on.errors && on.invalid && on.touched">
+        <small *ngIf="on.errors.required" style="color: tomato;"
+          >required</small
+        >
+        <small *ngIf="on.errors.pattern" style="color: tomato;"
+          >no should start with 7 or 8 or 9 and should be of 10 digits</small
+        >
+      </div>
+    </div>
+    <div>
+      email
+      <input
+        type="text"
+        name="mo"
+        #mo="ngModel"
+        style="
+          border: transparent;
+          border-bottom: 2px solid black;
+          background-color: khaki;
+          box-shadow: 3px 3px grey;
+        "
+        [(ngModel)]="ifMsg.email"
+        required
+        class="form-control"
+        [class.is-invalid]="mo.invalid && mo.touched"
+        pattern="[\w\.-]{4,20}(@[\w]{3,6})(.[\w]{2,6})"
+        [class.is-valid]="mo.valid"
+      />
+      <div *ngIf="mo.errors && mo.invalid && mo.touched">
+        <small *ngIf="mo.errors.required">required</small>
+        <small *ngIf="mo.errors.pattern">email should folow pattern </small>
+      </div>
+    </div>
+    select
+    <div class="form-group">
+      <select
+        (blur)="valitap(sel.value)"
+        (change)="valitap(sel.value)"
+        [class.is-invalid]="topHasError && sel.touched"
+        name="topic"
+        class="custom-select"
+        #sel="ngModel"
+        [(ngModel)]="ifMsg.sel"
+        style="
+          background-color: khaki;
+          border: transparent;
+          box-shadow: 5px 5px grey;
+        "
+      >
+        <option value="">default</option>
+        <option>react</option>
+        <option>react</option>
+        <option>vuie</option>
+        <small [class.d-none]="topHasError || sel.untouched">kjgdlkmflds</small>
+      </select>
+      <div></div>
+    </div>
+
+    <br />
+
+    <button [disabled]="user.invalid" class="btn btn-primary">submit</button>
+  </form>
+</div>

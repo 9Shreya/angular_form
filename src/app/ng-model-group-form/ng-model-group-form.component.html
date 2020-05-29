@@ -1,0 +1,25 @@
+<p>ng-model-group-form works!</p>
+<h1>it works inside <u>div ngModelGroup='address' </u></h1>
+<form #user=ngForm>
+    {{user.value |json}}
+    <div class="form-group">
+        name
+<input type="text" name="name" ngModel class="form-control">
+    </div>
+<div ngModelGroup='address'>
+    <div class="form-group">
+        street         here for city and street we provided same name attribute 
+                      so giving same plcae value so provide diff name
+<input type="text" name="name" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+        city
+<input type="text" name="name" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+        postalcode
+<input type="text" name="postalcode" ngModel class="form-control">
+    </div>
+
+</div>
+<button routerLink="bindingFormTotsFile" class="btn btn-primary"> submit</button></form>
